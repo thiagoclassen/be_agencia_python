@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "b34ec952-8452-475a-992e-c4e51eecca29",
+		"name": "agencia_be",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post Vaga",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "empresa",
+							"value": "testeqwe",
+							"type": "text"
+						},
+						{
+							"key": "contato",
+							"value": "qweqweqweqwe",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "qweqweqweqwe",
+							"type": "text"
+						},
+						{
+							"key": "cargaHoraria",
+							"value": "qwe12312312",
+							"type": "text"
+						},
+						{
+							"key": "salario",
+							"value": "qwe123123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/vagas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Vaga",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "zxczxczxc",
+							"type": "text"
+						},
+						{
+							"key": "contato",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "u",
+							"type": "text"
+						},
+						{
+							"key": "cargaHoraria",
+							"value": "i",
+							"type": "text"
+						},
+						{
+							"key": "salario",
+							"value": "p",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/vagas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vagas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/vagas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Vagas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/vagas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"vagas"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
