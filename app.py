@@ -79,12 +79,12 @@ def vagasEnd():
         json_data = request.get_json(force=True) 
         vaga = Vaga(json_data)
         for idx, obj in enumerate(vagas):
-            if obj.id == int(request.form["id"], 10):
-                vagas[idx]["empresa"] = request.form["empresa"]
-                vagas[idx]["contato"] = request.form["contato"]
-                vagas[idx]["area"] = request.form["area"]
-                vagas[idx]["cargaHoraria"] = request.form["cargaHoraria"]
-                vagas[idx]["salario"] = request.form["salario"]
+            if obj.id == json_data["id"]:
+                vagas[idx]["empresa"] = vaga.empresa
+                vagas[idx]["contato"] = vaga.contato
+                vagas[idx]["area"] = vaga.area
+                vagas[idx]["cargaHoraria"] = vaga.cargaHoraria
+                vagas[idx]["salario"] = vaga.salario
         return 'ok', 200
     elif request.method == 'DELETE':
         for obj in vagas:
@@ -113,13 +113,15 @@ def curriculossEnd():
         curriculos.append(curriculo)
         return CurriculoEncoder().encode(curriculo), 200
     elif request.method == 'PUT':
+        json_data = request.get_json(force=True) 
+        curriculo = Curriculo(json_data)
         for idx, obj in enumerate(curriculos):
-            if obj.id == int(request.form["id"], 10):
-                curriculos[idx]["nome"] = request.form["nome"]
-                curriculos[idx]["contato"] = request.form["contato"]
-                curriculos[idx]["area"] = request.form["area"]
-                curriculos[idx]["cargaHoraria"] = request.form["cargaHoraria"]
-                curriculos[idx]["salario"] = request.form["salario"]
+            if obj.id == json_data["id"]:
+                curriculos[idx]["nome"] = curriculo.nome
+                curriculos[idx]["contato"] = curriculo.contato
+                curriculos[idx]["area"] = curriculo.area
+                curriculos[idx]["cargaHoraria"] = curriculo.cargaHoraria
+                curriculos[idx]["salario"] = curriculo.salario
         return 'ok', 200
     elif request.method == 'DELETE':
         for obj in curriculos:
