@@ -1,8 +1,11 @@
 from json import JSONEncoder
 import json
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 
 global vagaId
 global curriculoId
@@ -68,10 +71,13 @@ class CurriculoEncoder(JSONEncoder):
 def vagasEnd():
     global vagas
     if request.method == 'POST':
-        vaga = Vaga(request.form)
+        json_data = request.get_json(force=True) 
+        vaga = Vaga(json_data)
         vagas.append(vaga)
         return VagaEncoder().encode(vaga), 200
     elif request.method == 'PUT':
+        json_data = request.get_json(force=True) 
+        vaga = Vaga(json_data)
         for idx, obj in enumerate(vagas):
             if obj.id == int(request.form["id"], 10):
                 vagas[idx]["empresa"] = request.form["empresa"]
@@ -102,7 +108,8 @@ def vagaEnd(id):
 def curriculossEnd():
     global curriculos
     if request.method == 'POST':
-        curriculo = Curriculo(request.form)
+        json_data = request.get_json(force=True) 
+        curriculo = Curriculo(json_data)
         curriculos.append(curriculo)
         return CurriculoEncoder().encode(curriculo), 200
     elif request.method == 'PUT':
@@ -130,6 +137,7 @@ def curriculoEnd(id):
         if obj.id == int(id, 10):
             return CurriculoEncoder().encode(obj), 200
     return 'Not Found', 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
